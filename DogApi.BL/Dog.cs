@@ -17,7 +17,7 @@ namespace DogApi.BL
                 breed += char.ToUpper(item[0]) + item.Substring(1) + " ";
             }
             
-            return breed;
+            return breed.Trim();
         }
     }
 }

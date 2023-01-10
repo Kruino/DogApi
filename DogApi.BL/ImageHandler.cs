@@ -8,15 +8,38 @@ namespace DogApi.BL
     {
         //create a Bitmap class 
 
-         public static async Task<string> GetImageColor(string url)
+         public static async Task<string> GetAvarageRGB(string url)
          {
-
              var bitmap = await WebImage(url);
 
-             var color = bitmap.GetPixel(bitmap.Width / 2, bitmap.Height / 2);
-             return $"#{color.Red:X2}{color.Green:X2}{color.Blue:X2}";
+             int r = 0;
+             int g = 0;
+             int b = 0;
+
+             int total = 0;
+
+             if (bitmap != null)
+                 for (int x = 0; x < bitmap.Width / 2; x += 2)
+                 {
+                     for (int y = 0; y < bitmap.Height / 2; y += 2)
+                     {
+                         var clr = bitmap.GetPixel(x, y);
+
+                         r += clr.Red;
+                         g += clr.Green;
+                         b += clr.Blue;
+
+                         total++;
+                     }
+                 }
+
+             r /= total;
+             g /= total;
+             b /= total;
+
+            return $"#{r:X2}{g:X2}{b:X2}";
          }
-         private static async Task<SKBitmap?> WebImage(string url)
+         public static async Task<SKBitmap?> WebImage(string url)
          {
             var httpClient = new HttpClient(); 
             var bytes = await httpClient.GetByteArrayAsync(url);
@@ -27,6 +50,5 @@ namespace DogApi.BL
 
             return bitmap;
          }
-
     }
 }

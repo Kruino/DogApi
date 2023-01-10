@@ -10,38 +10,56 @@
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
             <Grid.RowDefinitions>
                 <RowDefinition Height="250" />
+                <RowDefinition Height="40"/>
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Image
                 x:Name="DogImage"
                 HeightRequest="200"
                 HorizontalOptions="Center"/>
-            <Frame HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="1" BackgroundColor="Black" CornerRadius="0">
+
+            <Label Grid.Row="1"
+                x:Name="BreedLabel"
+                Text="Dog"
+                SemanticProperties.HeadingLevel="Level1"
+                FontAutoScalingEnabled="True"
+                FontSize="25"
+                HorizontalOptions="Center" />
+
+            <Frame HorizontalOptions="Fill" VerticalOptions="Fill" Grid.Row="2" BackgroundColor="Black" CornerRadius="0">
                 <VerticalStackLayout
-                    Spacing="25"
+                    Spacing="15"
                     VerticalOptions="Center">
-                    <Label
-                        x:Name="BreedLabel"
-                        Text="Dog"
-                        SemanticProperties.HeadingLevel="Level1"
-                        FontAutoScalingEnabled="True"
-                        FontSize="32"
-                        HorizontalOptions="Center" />
 
-                    <Grid x:Name="PickerHolder" 
-                          HorizontalOptions="Center"
-                          BackgroundColor="DimGray" Padding="5"/>
 
-                    <Button
-                        x:Name="DogButton"
-                        Text="Get Random Dog"
-                        Clicked="OnGetDogClickClicked"
-                        HorizontalOptions="Center"/>
+                    <Grid
+                        HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition  Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button
+                            x:Name="DogButton"
+                            Text="Random Image"
+                            Clicked="OnGetDogClicked"
+                            HorizontalOptions="Fill"
+                            CornerRadius="0"
+                            HeightRequest="40"/>
+
+                        <Border Grid.Column="1" x:Name="PickerBorder" Stroke="white"
+                                StrokeThickness="2"
+                                Padding="7, 0">
+                            <Picker x:Name="BreedPicker" TextColor="White" FontAutoScalingEnabled="False" MaximumHeightRequest="35" MaximumWidthRequest="50" WidthRequest="50"/>
+                        </Border>
+                    </Grid>
+
 
                     <Button x:Name="Wiki" 
                             Text="Dog Wiki"
                             Clicked="Wiki_OnClicked" 
-                            HorizontalOptions="Center" />
+                            HorizontalOptions="Fill" 
+                            BackgroundColor="Transparent" BorderColor="Transparent" TextColor="White" FontAutoScalingEnabled="True"/>
 
                 </VerticalStackLayout>
             </Frame>
