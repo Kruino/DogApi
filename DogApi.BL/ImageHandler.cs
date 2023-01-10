@@ -19,9 +19,9 @@ namespace DogApi.BL
              int total = 0;
 
              if (bitmap != null)
-                 for (int x = 0; x < bitmap.Width / 2; x += 2)
+                 for (int x = 0; x < bitmap.Width / 4; x += 4)
                  {
-                     for (int y = 0; y < bitmap.Height / 2; y += 2)
+                     for (int y = 0; y < bitmap.Height / 4; y += 4)
                      {
                          var clr = bitmap.GetPixel(x, y);
 

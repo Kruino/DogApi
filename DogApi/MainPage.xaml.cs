@@ -43,7 +43,7 @@ public partial class MainPage : ContentPage
     private async void Update(string message)
     {
         string breed = Dog.breed(message);
-        Color color = Color.Parse(await ImageHandler.GetAvarageRGB(message));
+        Color color = Color.FromArgb(await ImageHandler.GetAvarageRGB(message));
         float colorLuminosity = color.GetLuminosity();
         Color textColor = colorLuminosity > 0.5 ? Color.FromArgb("#000000") : Color.FromArgb("#ffffff");
 
