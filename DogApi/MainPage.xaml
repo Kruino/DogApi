@@ -41,6 +41,7 @@
 
                         <Button
                             x:Name="DogButton"
+                            BackgroundColor="Transparent"
                             Text="Random Image"
                             Clicked="OnGetDogClicked"
                             HorizontalOptions="Fill"

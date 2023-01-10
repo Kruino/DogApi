@@ -54,8 +54,8 @@ public partial class MainPage : ContentPage
         BreedLabel.Text = breed;
         PickerBorder.Stroke = color;
         DogButton.TextColor = textColor;
-        BreedLabel.TextColor = textColor;
-        DogButton.BackgroundColor = color;
+        BreedLabel.TextColor = textColor; 
+        DogButton.Background = color;
         Wiki.Text = $"Visit the {breed} Wiki";
     }
 
